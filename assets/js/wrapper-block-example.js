@@ -89,6 +89,7 @@ registerBlockType( 'wrapper-block-example/wrapper-block', {
 		// Only set attributes when background color is chosen
 		if ( '' !== bgColor ) {
 			styles = { backgroundColor: bgColor, padding: '10px' };
+			// Use classnames library to join all classes together
 			classes = classNames( `bg-${ bgColor }`, classes );
 		}
 
