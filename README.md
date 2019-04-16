@@ -1,8 +1,10 @@
 # Example how to create a wrapper block for Gutenberg in WordPress
 
 This is a WordPress plugin which shows how to create a wrapper block for Gutenberg.
-This blog post explains how it works: ????????????.
+This blog post explains how it works: https://www.liip.ch/en/blog/writing-a-wrapper-block-for-gutenberg.
 Feel free to use this plugin as a starting point to create a wrapper block for Gutenberg in your WordPress project.
+
+![Wrapper Block Demo](https://raw.githubusercontent.com/liip/wrapper-block-example-wp-plugin/master/assets/github/wrapper-block-demo.gif)
 
 ## Developer information
 
