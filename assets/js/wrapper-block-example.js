@@ -6,14 +6,16 @@ import classNames from 'classnames';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const { Fragment } = wp.element;
 const {
-	InnerBlocks,
-	InspectorControls,
+	Fragment, // Used to wrap our edit component and only have one root element
+} = wp.element;
+const {
+	InnerBlocks, // Allows it to place child blocks inside our block
+	InspectorControls, // We place our select control inside the inspector contorls which show up on the right of the editor
 } = wp.editor;
 const {
-	PanelBody,
-	SelectControl,
+	PanelBody, // A panel where we place our select control in (creates a colapsable element)
+	SelectControl, // Our select control to choose the background color
 } = wp.components;
 
 registerBlockType( 'wrapper-block-example/wrapper-block', {
@@ -26,11 +28,8 @@ registerBlockType( 'wrapper-block-example/wrapper-block', {
 		__( 'Wrapper Block', 'wrapper-block-example' ),
 	],
 
-	supports: {
-		align: false,
-	},
-
 	attributes: {
+		// Register bgColor attribute to save the chosen color
 		bgColor: {
 			type: 'string',
 		},
@@ -84,10 +83,19 @@ registerBlockType( 'wrapper-block-example/wrapper-block', {
 			bgColor = '',
 		} = attributes;
 
+		let styles = {};
+		let classes = className;
+
+		// Only set attributes when background color is chosen
+		if ( '' !== bgColor ) {
+			styles = { backgroundColor: bgColor, padding: '10px' };
+			classes = classNames( `bg-${ bgColor }`, classes );
+		}
+
 		return (
 			<div
-				className={ classNames( 'wrapper-block-example', `bg-${ bgColor }`, className ) }
-				style={ { backgroundColor: bgColor, padding: '10px' } }
+				className={ classes }
+				style={ styles }
 			>
 				<InnerBlocks.Content />
 			</div>
