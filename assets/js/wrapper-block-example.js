@@ -2,7 +2,7 @@
  * BLOCK: wrapper-block-example/background
  */
 
-import classNames from 'classnames';
+import classNames from 'classnames'; // Used to to join classes together
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
