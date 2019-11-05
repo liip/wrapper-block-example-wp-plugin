@@ -25,7 +25,7 @@ function wrapper_block_example_enqueue_block_editor_assets() {
     wp_enqueue_script(
         'wrapper-block-example-js',
         esc_url( plugins_url( '/dist/wrapper-block-example.js', __FILE__ ) ),
-        array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ),
+        array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components' ),
         '1.0.0',
         true // Enqueue the script in the footer.
     );
